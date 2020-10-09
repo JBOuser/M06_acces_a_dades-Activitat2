@@ -1,0 +1,63 @@
+Activitat 2.1. Experimentació amb la gestió bàsica del contingut
+
+
+Exercici 1
+
+Fes un únic programa que emmagatzemi en un fitxer, per bytes, i posteriorment recuperi i pinti per pantalla les 
+següents dades una darrera l'altra:
+
+    Un booleà
+    Un enter (superior a 100000)
+    Un conjunt de caràcters
+
+Observa el contingut del fitxer. Per què creus que es mostra així?
+
+- El mètode read() de la class DataInputStream retorna un valor del tipus 'int'. Aquest valor 'int' es el valor del 
+  caràcter de la taula ASCII i per tant si es fa una casting amb 'char' es mostra el valor traduït.
+
+Què creus que passaria si, on hi ha un booleà, intentéssim recuperar un enter? Fes-ne la prova i digues què passa.
+
+- Si es fa servir readInt() en comptes de read() per extreure els valors com a 'int' el programa dona un error en 
+  temps d'execució ja que s'està intentant extreure un valor de tipus diferent a 'int' per a un contingut amb un 
+  datatype diferent, boolean en aquest cas.
+
+
+Exercici 2
+
+Fes un programa que emmagatzemi en un fitxer, per caràcters i en codificació UTF-8, i posteriorment recuperi i pinti 
+per pantalla les següents dades una darrera l'altra:
+
+    Un enter
+    Una cadena de text que contingui caràcters estranys (ç, ñ, accents, dièresis...). Realitza la prova amb diferents 
+    codificacions.
+
+Observa el contingut. Quina diferència hi ha amb l’anterior? Com pots distingir quan acaba un i comença l’altre?
+
+- A diferencia de mètode read() que retorna el valor 'int' el mètode readUTF() retorna un String. La forma per saber
+  quan acaba un i quan comença l'altre és mitjançant el salt de línia ("\n").
+
+
+Exercici 3
+
+Cada cop que executes els programes anteriors, esborren el contingut del fitxer, si és que ja existia, o l’afegeixen 
+al final, mantenint el contingut que existís? Com podries canviar aquest comportament?
+
+- Cada vegada que s'executa el mètode d'escriure contingut en un fitxer si el fitxer destí existeix es sobreesciur.
+  El contingut es sobreescriu perque quan s'iniliatza una instància de la classe FileOutputStream() per defecte té
+  el valor del seu 2n paràmetre com a 'false'. Si aquest paràmetre es pasa com a 'true' el nou contingut s'afegeix 
+  en comptes de sobreescriure's.
+
+
+Exercici 4
+
+Investiga per Internet què és i com s’utilitzen els fitxers Properties en Java. Crea un fitxer de propietats (si vols 
+manualment, no cal que sigui a través de Java). Fes un programa Java que llegeixi i printi per pantalla almenys dues 
+propietats diferents del fitxer de propietats. Cal fer servir la classe “java.util.Properties”.
+
+- La Class Properties representa un set de propietats persistents. Aquesta Class pot guardar-se com en un stream i
+  pot carregar-se desde un stream, que acostuma a ser el contingut d'un fitxer en memòria..
+
+En una aplicació que necessita connectar-se a una base de dades per obtenir informació, per què ens pot ser útil un 
+fitxer de propietats? (Link: https://mkyong.com/java/java-properties-file-examples/)
+
+- El seu ús és molt comú per a emmagatzemar parametres de configuració d'una aplicació o projecte.
